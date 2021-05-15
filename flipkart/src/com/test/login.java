@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,13 +24,16 @@ public class login extends HttpServlet {
 		if(user.contentEquals("java") && pass.contentEquals("admin"))
 		{
 			//out.println("login success");
-			RequestDispatcher rd=request.getRequestDispatcher("home.html");
-			rd.forward(request, response);
+			//RequestDispatcher rd=request.getRequestDispatcher("home.html");
+			//rd.forward(request, response);
+			response.sendRedirect("Welcome");
 		}
 		else
 		{
-			out.println("login failed");
-		}
+			out.println("<h2><font color='red'>login failed</font></h2>");
+			RequestDispatcher rd=request.getRequestDispatcher("login.html");
 	}
-
+	}
 }
+
+
